@@ -3,6 +3,7 @@ package com.github.bsfowlie.snake;
 import java.util.stream.IntStream;
 
 import javafx.geometry.Point2D;
+import javafx.scene.shape.Rectangle;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -167,6 +168,74 @@ class SnakeShould implements WithAssertions {
 
         // then
         assertThat(snake.isDead()).isTrue();
+    }
+
+    @Test void know_if_its_in_bounds() {
+
+        // given
+        final Rectangle boundary = new Rectangle(START_X, START_Y, 1, 1);
+
+        // when
+
+        // then
+        assertThat(snake.inBounds(boundary)).isTrue();
+
+    }
+
+    @Test void know_if_its_out_of_bounds_right() {
+
+        // given
+        final Rectangle boundary = new Rectangle(START_X, START_Y, 1, 1);
+
+        // when
+        snake.move(Direction.RIGHT);
+        snake.update();
+
+        // then
+        assertThat(snake.inBounds(boundary)).isFalse();
+
+    }
+
+    @Test void know_if_its_out_of_bounds_down() {
+
+        // given
+        final Rectangle boundary = new Rectangle(START_X, START_Y, 1, 1);
+
+        // when
+        snake.move(Direction.DOWN);
+        snake.update();
+
+        // then
+        assertThat(snake.inBounds(boundary)).isFalse();
+
+    }
+
+    @Test void know_if_its_out_of_bounds_left() {
+
+        // given
+        final Rectangle boundary = new Rectangle(START_X, START_Y, 1, 1);
+
+        // when
+        snake.move(Direction.LEFT);
+        snake.update();
+
+        // then
+        assertThat(snake.inBounds(boundary)).isFalse();
+
+    }
+
+    @Test void know_if_its_out_of_bounds_up() {
+
+        // given
+        final Rectangle boundary = new Rectangle(START_X, START_Y, 1, 1);
+
+        // when
+        snake.move(Direction.UP);
+        snake.update();
+
+        // then
+        assertThat(snake.inBounds(boundary)).isFalse();
+
     }
 
 }
