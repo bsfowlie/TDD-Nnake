@@ -71,4 +71,16 @@ class SnakeShould implements WithAssertions {
 
     }
 
+    @Test void collide_with_food() {
+
+        // given
+        final Food food = new Food(new Point2D(START_X, START_Y));
+
+        // when
+
+        // then
+        assertThat(snake.collidesWith(food)).isTrue();
+
+    }
+
 }

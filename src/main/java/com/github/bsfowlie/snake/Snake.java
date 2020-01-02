@@ -32,4 +32,10 @@ public class Snake {
 
     }
 
+    public boolean collidesWith(final Food food) {
+
+        return head.equals(food.position());
+
+    }
+
 }
