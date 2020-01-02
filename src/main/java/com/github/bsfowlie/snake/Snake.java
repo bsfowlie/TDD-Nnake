@@ -69,7 +69,7 @@ public class Snake {
 
     public boolean inBounds(final Rectangle boundary) {
 
-        return true;
+        return boundary.contains(head);
 
     }
 
