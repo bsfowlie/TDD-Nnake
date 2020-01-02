@@ -60,4 +60,10 @@ public class Snake {
 
     }
 
+    public boolean isDead() {
+
+        return body.lastIndexOf(head) > 0;
+
+    }
+
 }
