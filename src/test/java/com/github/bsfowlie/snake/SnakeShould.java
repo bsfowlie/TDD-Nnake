@@ -83,4 +83,28 @@ class SnakeShould implements WithAssertions {
 
     }
 
+    @Test void have_initial_length_of_1() {
+
+        // given
+
+        // when
+
+        // then
+        assertThat(snake.body()).hasSize(1);
+
+    }
+
+    @Test void always_contain_head_in_body() {
+
+        // given
+        snake.move(Direction.UP);
+
+        // when
+        snake.update();
+
+        // then
+        assertThat(snake.body()).contains(snake.position());
+
+    }
+
 }
