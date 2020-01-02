@@ -107,4 +107,33 @@ class SnakeShould implements WithAssertions {
 
     }
 
+    @Test void be_able_to_grow() {
+
+        // given
+        snake.move(Direction.RIGHT);
+        snake.update();
+
+        // when
+        snake.grow();
+
+        // then
+        assertThat(snake.body()).hasSize(2).contains(snake.position(), new Point2D(START_X, START_Y));
+
+    }
+
+    @Test void always_contain_head_at_front_of_body() {
+
+        // given
+        snake.move(Direction.UP);
+        snake.update();
+        snake.grow();
+
+        // when
+        snake.update();
+
+        // then
+        assertThat(snake.body().get(0)).isEqualTo(snake.position());
+
+    }
+
 }
