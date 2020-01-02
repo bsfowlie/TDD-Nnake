@@ -1,5 +1,7 @@
 package com.github.bsfowlie.snake;
 
+import java.util.stream.IntStream;
+
 import javafx.geometry.Point2D;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -124,7 +126,7 @@ class SnakeShould implements WithAssertions {
     @Test void always_contain_head_at_front_of_body() {
 
         // given
-        snake.move(Direction.UP);
+        snake.move(Direction.DOWN);
         snake.update();
         snake.grow();
 
@@ -134,6 +136,37 @@ class SnakeShould implements WithAssertions {
         // then
         assertThat(snake.body().get(0)).isEqualTo(snake.position());
 
+    }
+
+    @Test void not_be_dead() {
+
+        // given
+
+        // when
+
+        // then
+        assertThat(snake.isDead()).isFalse();
+    }
+
+    @Test void die_if_runs_into_self() {
+
+        // given
+        snake.move(Direction.LEFT);
+        IntStream.range(0, 5).forEach(i -> {
+            snake.update();
+            snake.grow();
+        });
+
+        // when
+        snake.move(Direction.UP);
+        snake.update();
+        snake.move(Direction.RIGHT);
+        snake.update();
+        snake.move(Direction.DOWN);
+        snake.update();
+
+        // then
+        assertThat(snake.isDead()).isTrue();
     }
 
 }
