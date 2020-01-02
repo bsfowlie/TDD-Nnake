@@ -4,7 +4,8 @@ import javafx.geometry.Point2D;
 
 public enum Direction {
     RIGHT(1, 0),
-    DOWN(0,1);
+    DOWN(0,1),
+    LEFT(-1,0);
 
     private final Point2D velocity;
 
