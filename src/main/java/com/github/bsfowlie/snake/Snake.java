@@ -1,16 +1,36 @@
 package com.github.bsfowlie.snake;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javafx.geometry.Point2D;
 
 public class Snake {
 
+    private final List<Point2D> body;
+
     private Point2D head;
+    private Point2D previousTail;
 
     private Direction direction;
 
     public Snake(final Point2D position) {
 
         this.head = position;
+        this.body = new LinkedList<>();
+        this.body.add(this.head);
+
+    }
+
+    public Point2D position() {
+
+        return head;
+
+    }
+
+    public List<Point2D> body() {
+
+        return body;
 
     }
 
@@ -23,18 +43,20 @@ public class Snake {
     public void update() {
 
         head = head.add(direction.velocity());
-
-    }
-
-    public Point2D position() {
-
-        return head;
+        previousTail = body.remove(body.size() - 1);
+        body.add(0, head);
 
     }
 
     public boolean collidesWith(final Food food) {
 
         return head.equals(food.position());
+
+    }
+
+    public void grow() {
+
+        body.add(previousTail);
 
     }
 
