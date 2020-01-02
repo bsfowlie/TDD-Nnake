@@ -30,6 +30,18 @@ class SnakeShould implements WithAssertions {
         // then
         assertThat(snake.position()).isEqualTo(new Point2D(START_X + 1, START_Y));
 
+    }
+
+    @Test void move_down() {
+
+        // given
+        snake.move(Direction.DOWN);
+
+        // when
+        snake.update();
+
+        // then
+        assertThat(snake.position()).isEqualTo(new Point2D(START_X, START_Y + 1));
 
     }
 
