@@ -7,4 +7,4 @@ Create the Snake game with TDD using JavaFX for the view.
 3. Snake can encounter food
 4. Snake can grow
 5. Snake dies if it runs into itself
-6. Snake dies if it runs out of bounds
+6. Snake knows when its out of bounds

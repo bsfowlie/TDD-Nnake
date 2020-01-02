@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javafx.geometry.Point2D;
+import javafx.scene.shape.Rectangle;
 
 public class Snake {
 
@@ -63,6 +64,12 @@ public class Snake {
     public boolean isDead() {
 
         return body.lastIndexOf(head) > 0;
+
+    }
+
+    public boolean inBounds(final Rectangle boundary) {
+
+        return true;
 
     }
 

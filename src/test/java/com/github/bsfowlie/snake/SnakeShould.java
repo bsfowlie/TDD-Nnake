@@ -3,6 +3,7 @@ package com.github.bsfowlie.snake;
 import java.util.stream.IntStream;
 
 import javafx.geometry.Point2D;
+import javafx.scene.shape.Rectangle;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -167,6 +168,18 @@ class SnakeShould implements WithAssertions {
 
         // then
         assertThat(snake.isDead()).isTrue();
+    }
+
+    @Test void know_if_its_in_bounds() {
+
+        // given
+        final Rectangle boundary = new Rectangle(START_X, START_Y);
+
+        // when
+
+        // then
+        assertThat(snake.inBounds(boundary)).isTrue();
+
     }
 
 }
