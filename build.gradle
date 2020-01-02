@@ -32,6 +32,9 @@ dependencies {
     // This dependency is used by the application.
     // implementation 'com.google.guava:guava:28.0-jre'
 
+    // Use the AssertJ API for assertions
+    testImplementation 'org.assertj:assertj-core:3.14.0'
+
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
 
